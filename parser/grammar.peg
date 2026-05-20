@@ -1,0 +1,16 @@
+// grammar.peg created 2026-05-20
+// Time-stamp: <2026-05-20 11:53:49 krylon>
+
+package parser
+
+type Parser Peg {
+    
+}
+
+END <- . !.
+LBRACE <- '{'
+RBRACE <- '}'
+LPAREN <- '('
+RPAREN <- ')'
+DIGIT <- [0-9]
+INTEGER <- DIGIT+
