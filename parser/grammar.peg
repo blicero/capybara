@@ -1,5 +1,5 @@
 // grammar.peg created 2026-05-20
-// Time-stamp: <2026-05-20 11:53:49 krylon>
+// Time-stamp: <2026-05-20 12:35:38 krylon>
 
 package parser
 
@@ -7,10 +7,14 @@ type Parser Peg {
     
 }
 
-END <- . !.
+Program <- (Expression Program) / Expression
+Expression <- Integer / Identifier / Block / (LPAREN Expression+ RPAREN)
+Identifier <- [[a-z]] [[a-z0-9_]]*
+Block <- LBRACE Expression* RBRACE
+
 LBRACE <- '{'
 RBRACE <- '}'
 LPAREN <- '('
 RPAREN <- ')'
-DIGIT <- [0-9]
-INTEGER <- DIGIT+
+Digit <- [0-9]
+Integer <- Digit+
