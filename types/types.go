@@ -2,7 +2,7 @@
 // -*- mode: go; coding: utf-8; -*-
 // Created on 20. 05. 2026 by Benjamin Walkenhorst
 // (c) 2026 Benjamin Walkenhorst
-// Time-stamp: <2026-05-20 16:45:49 krylon>
+// Time-stamp: <2026-05-21 19:20:51 krylon>
 
 // Package types provides symbolic constants to identify the types
 // used in the Capybara language.
@@ -14,6 +14,7 @@ type Type uint8
 
 const (
 	None Type = iota
+	Symbol
 	Integer
 	Float
 	String
