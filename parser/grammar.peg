@@ -1,0 +1,27 @@
+// grammar.peg created 2026-05-20
+// Time-stamp: <2026-05-23 19:58:44 krylon>
+
+package parser
+
+type Parser Peg {
+    
+}
+
+Program <- (Expression Whitespace Program) / Expression
+BinaryExpression <- Expression Whitespace? BinaryOperator Whitespace? Expression
+Identifier <- [[a-z]] [[a-z0-9_]]*
+Block <- LBRACE (Expression Whitespace)* RBRACE
+SimpleExpression <- Integer / Identifier
+Expression <- BinaryExpression / SimpleExpression
+
+LBRACE <- '{'
+RBRACE <- '}'
+LPAREN <- '('
+RPAREN <- ')'
+LBRACKET <- '['
+RBRACKET <- ']'
+Digit <- [0-9]
+Integer <- [0-9]+
+Comma <- ','
+BinaryOperator <- [-+*/%=]
+Whitespace <- [ \t\r\n]+
